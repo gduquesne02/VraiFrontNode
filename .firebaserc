@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "lp-dim-fi-gd": {
+      "hosting": {
+        "iut-app": [
+          "lp-dim-fi-gd"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "lp-dim-fi-gd"
+  }
+}

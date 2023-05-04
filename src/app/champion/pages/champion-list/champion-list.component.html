@@ -1,0 +1,63 @@
+<div class="container">
+  <h2>Liste des Champions</h2>
+  <div class="flex-grow-1 p-1">
+    <table mat-table [dataSource]="champions$ | async" class="mat-elevation-z8">
+      <!-- Firstname Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Nom</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+
+      <!-- lastName Column -->
+      <ng-container matColumnDef="shortPhrase">
+        <th mat-header-cell *matHeaderCellDef>Courte phrase</th>
+        <td mat-cell *matCellDef="let element">{{ element.shortPhrase }}</td>
+      </ng-container>
+
+      <!-- class Column -->
+      <ng-container matColumnDef="carateristiques">
+        <th mat-header-cell *matHeaderCellDef>carateristiques</th>
+        <td mat-cell *matCellDef="let element">{{ element.carateristiques }}</td>
+      </ng-container>
+
+      <!-- email Column -->
+      <ng-container matColumnDef="dateApparition">
+        <th mat-header-cell *matHeaderCellDef>Date d'apparition</th>
+        <td mat-cell *matCellDef="let element">{{ element.dateApparition }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="lane">
+        <th mat-header-cell *matHeaderCellDef>Voie</th>
+        <td mat-cell *matCellDef="let element">{{ element.lane.lane }}</td>
+      </ng-container>
+
+      <!-- update Column -->
+      <ng-container matColumnDef="update">
+        <th mat-header-cell *matHeaderCellDef>Modifier</th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          (click)="openChampionForm(element); $event.stopPropagation()"
+        >
+          <mat-icon>edit_note</mat-icon>
+        </td>
+      </ng-container>
+
+      <!-- delete Column -->
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef>Supprimer</th>
+        <td mat-cell *matCellDef="let element" (click)="delete(element.id) ; $event.stopPropagation()">
+          <mat-icon>delete_forever</mat-icon>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="showChampionDetails(row.id)"></tr>
+    </table>
+  </div>
+  <div class="btn-holder">
+    <button mat-fab color="warn" (click)="openChampionForm()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>

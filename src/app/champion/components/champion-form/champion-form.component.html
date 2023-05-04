@@ -1,0 +1,51 @@
+<h2 mat-dialog-title>{{title}}</h2>
+
+<form [formGroup]="championForm" (ngSubmit)="onSubmit()">
+  <div class="form">
+    <mat-form-field appearance="outline">
+      <mat-label>identifiant</mat-label>
+      <input matInput formControlName="id" readonly />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nom</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Courte Phrase</mat-label>
+      <input matInput formControlName="shortPhrase" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Carateristiques</mat-label>
+      <mat-select formControlName="carateristiques">
+        <mat-option *ngFor="let class of classes" [value]="class">
+          {{class}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Lane</mat-label>
+      <mat-select formControlName="lane">
+        <mat-option *ngFor="let class of lanes" [value]="class">
+          {{class}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Date d'apparition</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dateApparition">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" mat-dialog-close>Annuler</button>
+    <button mat-raised-button type="submit" cdkFocusInitial color="warn" [disabled]="!championForm.valid || !championForm.dirty">{{submitBtnName}}</button>
+  </mat-dialog-actions>
+</form>
