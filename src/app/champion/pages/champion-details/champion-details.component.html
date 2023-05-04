@@ -6,10 +6,12 @@
     <mat-icon>arrow_back</mat-icon> Retourner a la liste des personnages
   </button>
   <div class="carte">
-    <img src="https://e.sport.fr/wp-content/uploads/2021/10/vignette-LoL-Date-Debut-Saison-12.jpg" alt="">
+    <img class="champ" src="{{champion.image}}">
     <h2>Nom : {{ champion.name }}</h2>
     <h3>Courte Phrase : {{ champion.shortPhrase }}</h3>
     <p>Date d'ajout : {{ champion.dateApparition }}</p>
     <p>Type de dégats : {{ champion.carateristiques }}</p>
+    
+
   </div>
 </div>

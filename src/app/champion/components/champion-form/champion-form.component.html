@@ -18,10 +18,15 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
+      <mat-label>Image</mat-label>
+      <input matInput formControlName="image" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
       <mat-label>Carateristiques</mat-label>
       <mat-select formControlName="carateristiques">
-        <mat-option *ngFor="let class of classes" [value]="class">
-          {{class}}
+        <mat-option *ngFor="let carateristiques of classes" [value]="carateristiques">
+          {{carateristiques}}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -29,8 +34,8 @@
     <mat-form-field appearance="outline">
       <mat-label>Lane</mat-label>
       <mat-select formControlName="lane">
-        <mat-option *ngFor="let class of lanes" [value]="class">
-          {{class}}
+        <mat-option *ngFor="let lane of lanes" [value]="lane">
+          {{lane}}
         </mat-option>
       </mat-select>
     </mat-form-field>

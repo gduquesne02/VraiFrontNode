@@ -5,4 +5,5 @@ export interface Champion{
     carateristiques:string;
     dateApparition:string;
     lane:string;
+    image: string;
  }
